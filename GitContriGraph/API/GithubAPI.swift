@@ -13,7 +13,7 @@ struct GithubAPI {
     
     func fetchUserContributions(completion: @escaping(ContributionsResponse) -> Void, onErr: @escaping(String) -> Void) {
         let query: [String: Any] = [
-            "query": "{\n            user(login: \"\(userName)\") {\n              name\n              avatarUrl\n              contributionsCollection(from: \"\(getFromDate())\") {\n                contributionCalendar {\n                  colors\n                  totalContributions\n                  weeks {\n                    contributionDays {\n                      color\n                      contributionCount\n                      date\n                      weekday\n                    }\n                    firstDay\n                  }\n                }\n              }\n            }\n          }"
+            "query": "{\n            user(login: \"\(userName)\") {\n              name\n              avatarUrl\n              contributionsCollection(from: \"\(getFromDate())\", to: \"\(getCurrentDate())\") {\n                contributionCalendar {\n                  colors\n                  totalContributions\n                  weeks {\n                    contributionDays {\n                      color\n                      contributionCount\n                      contributionLevel\n                      date\n                      weekday\n                    }\n                    firstDay\n                  }\n                }\n              }\n            }\n          }"
         ]
         
         guard let url = URL(string: "https://api.github.com/graphql") else {
@@ -37,6 +37,13 @@ struct GithubAPI {
                 return
             }
             
+            let httpRes = res as? HTTPURLResponse
+            let statusCode = httpRes?.statusCode ?? 500
+            if statusCode > 299 {
+                onErr("StatusCode: \(statusCode)")
+                return
+            }
+            
             do {
                 completion(try JSONDecoder().decode(ContributionsResponse.self, from: data))
             } catch {
@@ -48,8 +55,16 @@ struct GithubAPI {
     }
     
     private func getFromDate() -> String {
+        let date = Date()
         let calendar = Calendar.current
-        let fromDate = calendar.date(from: DateComponents(year: 2024, month: 1, day: 1))!
+        let year = calendar.component(.year, from: date)
+        
+        let fromDate = calendar.date(from: DateComponents(year: year, month: 1, day: 1))!
         return fromDate.ISO8601Format()
+    }
+    
+    private func getCurrentDate() -> String {
+        let date = Date()
+        return date.ISO8601Format()
     }
 }

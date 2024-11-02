@@ -5,11 +5,34 @@
 //  Created by Shashank on 02/11/24.
 //
 
-struct ContributionDay: Codable {
+enum ContributionLevel: String, Codable {
+    case None = "NONE"
+    case FirstQuartile = "FIRST_QUARTILE"
+    case SecondQuartile = "SECOND_QUARTILE"
+    case ThirdQuartile = "THIRD_QUARTILE"
+    case FourthQuartile = "FOURTH_QUARTILE"
+    
+    func toIdx() -> Int {
+        switch self {
+        case .None: return 0
+        case .FirstQuartile: return 1
+        case .SecondQuartile: return 2
+        case .ThirdQuartile: return 3
+        case .FourthQuartile: return 4
+        }
+    }
+}
+
+struct ContributionDay: Codable, Hashable {
     let color: String
     let contributionCount: Int
+    let contributionLevel: ContributionLevel
     let date: String
     let weekday: Int
+    
+    static func == (lhs: ContributionDay, rhs: ContributionDay) -> Bool {
+        lhs.date == rhs.date
+    }
 }
 
 struct Week: Codable {
@@ -39,4 +62,20 @@ struct Data: Codable {
 
 struct ContributionsResponse: Codable {
     let data: Data
+    
+    func mapToData() -> ContributionData {
+        var contributions: [ContributionDay] = []
+        data.user.contributionsCollection.contributionCalendar.weeks.forEach({ el in
+            contributions.append(contentsOf: el.contributionDays)
+        })
+        
+        return ContributionData(name: data.user.name, avatarUrl: data.user.avatarUrl, contributions: contributions, colors: data.user.contributionsCollection.contributionCalendar.colors)
+    }
+}
+
+struct ContributionData {
+    let name: String
+    let avatarUrl: String
+    let contributions: [ContributionDay]
+    let colors: [String]
 }
