@@ -1,13 +1,13 @@
 //
-//  GithubContribUITests.swift
-//  GithubContribUITests
+//  GitContriGraphUITests.swift
+//  GitContriGraphUITests
 //
 //  Created by Shashank on 02/11/24.
 //
 
 import XCTest
 
-final class GithubContribUITests: XCTestCase {
+final class GitContriGraphUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

@@ -1,13 +1,13 @@
 //
-//  GithubContribUITestsLaunchTests.swift
-//  GithubContribUITests
+//  GitContriGraphUITestsLaunchTests.swift
+//  GitContriGraphUITests
 //
 //  Created by Shashank on 02/11/24.
 //
 
 import XCTest
 
-final class GithubContribUITestsLaunchTests: XCTestCase {
+final class GitContriGraphUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
