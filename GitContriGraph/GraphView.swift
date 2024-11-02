@@ -10,24 +10,25 @@ import SwiftUI
 struct GraphView: View {
     
     let contributionData: ContributionData
+    var isWidget: Bool = false
     
     @Environment(\.colorScheme) private var colorScheme
+    
     private let gridItem: GridItem = GridItem(.fixed(16), spacing: 3)
     
     var body: some View {
         VStack {
             LazyHGrid(rows: [gridItem, gridItem, gridItem, gridItem, gridItem, gridItem, gridItem], spacing: 3) {
-                ForEach(contributionData.contributions, id: \.self) { item in
-                    ZStack {
-                        RoundedRectangle(cornerSize: CGSize(width: 4, height: 4))
-                            .fill(Color(level: item.contributionLevel, colorScheme: colorScheme))
-                            .frame(width: 16, height: 16, alignment: .center)
-                    }
+                ForEach(isWidget ? contributionData.getRestrainedContributions() : contributionData.contributions, id: \.self) { item in
+                    RoundedRectangle(cornerSize: CGSize(width: 3, height: 3))
+                        .fill(Color(level: item.contributionLevel, colorScheme: colorScheme))
+                        .frame(width: 15, height: 15, alignment: .center)
                 }
             }
-            .padding()
+            .padding(.horizontal, 2)
         }
-        .background(colorScheme == .dark ? .black : .white)
-        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 16, height: 16)))
+        .containerBackground(.fill.tertiary, for: .widget)
+        
+        .clipShape(RoundedRectangle(cornerSize: CGSize(width: 12, height: 12)))
     }
 }

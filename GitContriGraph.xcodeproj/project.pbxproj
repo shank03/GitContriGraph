@@ -6,7 +6,20 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D4C4EFA72CD688C800037DF2 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C4EFA62CD688C800037DF2 /* WidgetKit.framework */; };
+		D4C4EFA92CD688C800037DF2 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4C4EFA82CD688C800037DF2 /* SwiftUI.framework */; };
+		D4C4EFB72CD688C900037DF2 /* GraphWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D4C4EFA42CD688C800037DF2 /* GraphWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
+		D4C4EFB52CD688C900037DF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EC11732CD6429A00EFF327 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4C4EFA32CD688C800037DF2;
+			remoteInfo = GraphWidgetExtension;
+		};
 		D4EC118D2CD6429C00EFF327 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D4EC11732CD6429A00EFF327 /* Project object */;
@@ -23,15 +36,71 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		D4C4EFB82CD688C900037DF2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D4C4EFB72CD688C900037DF2 /* GraphWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		D4C4EFA42CD688C800037DF2 /* GraphWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = GraphWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4C4EFA62CD688C800037DF2 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D4C4EFA82CD688C800037DF2 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		D4EC117B2CD6429A00EFF327 /* GitContriGraph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitContriGraph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EC118C2CD6429C00EFF327 /* GitContriGraphTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitContriGraphTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EC11962CD6429C00EFF327 /* GitContriGraphUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitContriGraphUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D4C4EFBB2CD688C900037DF2 /* Exceptions for "GraphWidget" folder in "GraphWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = D4C4EFA32CD688C800037DF2 /* GraphWidgetExtension */;
+		};
+		D4C4EFC02CD6953D00037DF2 /* Exceptions for "GitContriGraph" folder in "GraphWidgetExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				API/ContributionsResponse.swift,
+				API/GithubAPI.swift,
+				GraphView.swift,
+				Utils/Colors.swift,
+			);
+			target = D4C4EFA32CD688C800037DF2 /* GraphWidgetExtension */;
+		};
+		D4C4EFC52CD699E100037DF2 /* Exceptions for "GraphWidget" folder in "GitContriGraph" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DataService.swift,
+			);
+			target = D4EC117A2CD6429A00EFF327 /* GitContriGraph */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		D4C4EFAA2CD688C800037DF2 /* GraphWidget */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D4C4EFC52CD699E100037DF2 /* Exceptions for "GraphWidget" folder in "GitContriGraph" target */,
+				D4C4EFBB2CD688C900037DF2 /* Exceptions for "GraphWidget" folder in "GraphWidgetExtension" target */,
+			);
+			path = GraphWidget;
+			sourceTree = "<group>";
+		};
 		D4EC117D2CD6429A00EFF327 /* GitContriGraph */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D4C4EFC02CD6953D00037DF2 /* Exceptions for "GitContriGraph" folder in "GraphWidgetExtension" target */,
+			);
 			path = GitContriGraph;
 			sourceTree = "<group>";
 		};
@@ -48,6 +117,15 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D4C4EFA12CD688C800037DF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4C4EFA92CD688C800037DF2 /* SwiftUI.framework in Frameworks */,
+				D4C4EFA72CD688C800037DF2 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4EC11782CD6429A00EFF327 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,12 +150,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D4C4EFA52CD688C800037DF2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4C4EFA62CD688C800037DF2 /* WidgetKit.framework */,
+				D4C4EFA82CD688C800037DF2 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D4EC11722CD6429A00EFF327 = {
 			isa = PBXGroup;
 			children = (
 				D4EC117D2CD6429A00EFF327 /* GitContriGraph */,
 				D4EC118F2CD6429C00EFF327 /* GitContriGraphTests */,
 				D4EC11992CD6429C00EFF327 /* GitContriGraphUITests */,
+				D4C4EFAA2CD688C800037DF2 /* GraphWidget */,
+				D4C4EFA52CD688C800037DF2 /* Frameworks */,
 				D4EC117C2CD6429A00EFF327 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -88,6 +177,7 @@
 				D4EC117B2CD6429A00EFF327 /* GitContriGraph.app */,
 				D4EC118C2CD6429C00EFF327 /* GitContriGraphTests.xctest */,
 				D4EC11962CD6429C00EFF327 /* GitContriGraphUITests.xctest */,
+				D4C4EFA42CD688C800037DF2 /* GraphWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +185,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D4C4EFA32CD688C800037DF2 /* GraphWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4C4EFBC2CD688C900037DF2 /* Build configuration list for PBXNativeTarget "GraphWidgetExtension" */;
+			buildPhases = (
+				D4C4EFA02CD688C800037DF2 /* Sources */,
+				D4C4EFA12CD688C800037DF2 /* Frameworks */,
+				D4C4EFA22CD688C800037DF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				D4C4EFAA2CD688C800037DF2 /* GraphWidget */,
+			);
+			name = GraphWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = GraphWidgetExtension;
+			productReference = D4C4EFA42CD688C800037DF2 /* GraphWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		D4EC117A2CD6429A00EFF327 /* GitContriGraph */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D4EC11A02CD6429C00EFF327 /* Build configuration list for PBXNativeTarget "GitContriGraph" */;
@@ -102,10 +214,12 @@
 				D4EC11772CD6429A00EFF327 /* Sources */,
 				D4EC11782CD6429A00EFF327 /* Frameworks */,
 				D4EC11792CD6429A00EFF327 /* Resources */,
+				D4C4EFB82CD688C900037DF2 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D4C4EFB62CD688C900037DF2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				D4EC117D2CD6429A00EFF327 /* GitContriGraph */,
@@ -173,6 +287,9 @@
 				LastSwiftUpdateCheck = 1610;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
+					D4C4EFA32CD688C800037DF2 = {
+						CreatedOnToolsVersion = 16.1;
+					};
 					D4EC117A2CD6429A00EFF327 = {
 						CreatedOnToolsVersion = 16.1;
 					};
@@ -203,11 +320,19 @@
 				D4EC117A2CD6429A00EFF327 /* GitContriGraph */,
 				D4EC118B2CD6429C00EFF327 /* GitContriGraphTests */,
 				D4EC11952CD6429C00EFF327 /* GitContriGraphUITests */,
+				D4C4EFA32CD688C800037DF2 /* GraphWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D4C4EFA22CD688C800037DF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4EC11792CD6429A00EFF327 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -232,6 +357,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D4C4EFA02CD688C800037DF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D4EC11772CD6429A00EFF327 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -256,6 +388,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D4C4EFB62CD688C900037DF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4C4EFA32CD688C800037DF2 /* GraphWidgetExtension */;
+			targetProxy = D4C4EFB52CD688C900037DF2 /* PBXContainerItemProxy */;
+		};
 		D4EC118E2CD6429C00EFF327 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D4EC117A2CD6429A00EFF327 /* GitContriGraph */;
@@ -269,6 +406,66 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		D4C4EFB92CD688C900037DF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GraphWidget/GraphWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRS835V4P2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GraphWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GraphWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shank03.GitContriGraph.GraphWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		D4C4EFBA2CD688C900037DF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = GraphWidget/GraphWidget.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TRS835V4P2;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GraphWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = GraphWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.shank03.GitContriGraph.GraphWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		D4EC119E2CD6429C00EFF327 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -393,6 +590,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GitContriGraph/GitContriGraph.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -401,11 +599,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = GitContriGraph;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shank03.GitContriGraph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -420,6 +621,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = GitContriGraph/GitContriGraph.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -428,11 +630,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = GitContriGraph;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 14.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.shank03.GitContriGraph;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,6 +717,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D4C4EFBC2CD688C900037DF2 /* Build configuration list for PBXNativeTarget "GraphWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4C4EFB92CD688C900037DF2 /* Debug */,
+				D4C4EFBA2CD688C900037DF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D4EC11762CD6429A00EFF327 /* Build configuration list for PBXProject "GitContriGraph" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

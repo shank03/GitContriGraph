@@ -78,4 +78,9 @@ struct ContributionData {
     let avatarUrl: String
     let contributions: [ContributionDay]
     let colors: [String]
+    
+    func getRestrainedContributions() -> [ContributionDay] {
+        let restrain = contributions.count - (7 * 17)
+        return Array(contributions[restrain...])
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 
 struct ContentView: View {
     
@@ -45,8 +46,8 @@ struct ContentView: View {
     @State private var loading: Bool = false
     @State private var contributionData: ContributionData? = nil
     
-    @AppStorage("ghToken") private var ghToken: String = ""
-    @AppStorage("ghUserName") private var ghUserName: String = ""
+    @AppStorage("ghToken", store: UserDefaults(suiteName: "TRS835V4P2.com.shank03.GitContriGraph")) private var ghToken: String = ""
+    @AppStorage("ghUserName", store: UserDefaults(suiteName: "TRS835V4P2.com.shank03.GitContriGraph")) private var ghUserName: String = ""
     
     var body: some View {
         VStack {
@@ -58,13 +59,15 @@ struct ContentView: View {
             } else {
                 Button(action: {
                     fetchContributions()
+                    
+                    WidgetCenter.shared.reloadTimelines(ofKind: "GraphWidget")
                 }, label: {
                     Text("Fetch graph")
                 })
             }
             
-            if contributionData != nil {
-                GraphView(contributionData: contributionData!)
+            if let contributions = contributionData {
+                GraphView(contributionData: contributions)
             }
             
             if !errMsg.isEmpty {

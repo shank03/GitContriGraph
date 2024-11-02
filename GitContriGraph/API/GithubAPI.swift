@@ -55,11 +55,10 @@ struct GithubAPI {
     }
     
     private func getFromDate() -> String {
-        let date = Date()
         let calendar = Calendar.current
-        let year = calendar.component(.year, from: date)
+        let year = calendar.component(.year, from: .now)
         
-        let fromDate = calendar.date(from: DateComponents(year: year, month: 1, day: 1))!
+        let fromDate = calendar.date(from: DateComponents(year: year))!
         return fromDate.ISO8601Format()
     }
     
