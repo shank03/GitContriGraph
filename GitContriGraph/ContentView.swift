@@ -68,6 +68,7 @@ struct ContentView: View {
             
             if let contributions = contributionData {
                 GraphView(contributionData: contributions)
+                    .padding()
             }
             
             if !errMsg.isEmpty {

@@ -80,7 +80,10 @@ struct ContributionData {
     let colors: [String]
     
     func getRestrainedContributions() -> [ContributionDay] {
-        let restrain = contributions.count - (7 * 17)
+        let rem = contributions.count % 7
+        let cols = 17 - (rem == 0 ? 0 : 1)
+        
+        let restrain = contributions.count - rem - (7 * cols)
         return Array(contributions[restrain...])
     }
 }
